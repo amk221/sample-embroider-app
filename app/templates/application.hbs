@@ -1,7 +1,12 @@
 {{page-title "SampleEmbroiderApp"}}
 
-{{!-- The following component displays Ember's default welcome message. --}}
-<WelcomePage />
-{{!-- Feel free to remove this! --}}
+<FooSelect
+  @value={{this.foo1}}
+  @onSelect={{this.handleSelectFoo}} as |sb|
+>
+  {{#each (array (hash name='Foo') (hash name='Bar')) as |foo|}}
+    <sb.Option @value={{foo}}>{{foo.name}}</sb.Option>
+  {{/each}}
+</FooSelect>
 
 {{outlet}}
